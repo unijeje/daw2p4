@@ -1,0 +1,143 @@
+body{
+	background-color:#FFC99C;
+}
+h2{
+	font-family: 'Lato', sans-serif;
+}
+
+/******ENCABEZADO*********/
+
+#encabezado{
+	float:left;
+	width:102%;
+	/*border: 2px solid red;*/
+	height: 35%;
+	background-image: url("../img/cabecera.png") ;
+	background-repeat: no-repeat;
+	background-size:100% 100%;
+	border-radius: 25px;
+	margin-left: -1%;
+	margin-top: -1%;
+	margin-bottom: 1%;
+}
+
+#encabezado h2{
+	float:left;
+	margin-top: 2%;
+	margin-left: 15%;
+}
+
+#encabezado img{
+	float:left;
+	margin-top: 2%;
+	margin-left: 2%;
+}
+
+/**********MENU***********/
+#menu{
+	/*border: 2px solid blue;*/
+	clear:both;
+	margin-top: 5%;
+	margin-left: 20%;
+	width: 60%;
+	text-align: center;
+	position: relative;
+	font-family: 'Fira Sans', sans-serif;
+}
+
+#menu > .btn {
+	background-color: #8B84C6;
+    border: none;
+	color: #C3EE92; 
+    padding: 1%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 1%;
+    cursor: pointer;
+}
+#menu > .btn:hover {
+	background-color: #393837;
+	padding: 3%;
+	position: relative;
+
+}
+
+/************ Contenido central de la página ***************************/
+
+#izquierda{
+	position: absolute;
+	width: 17%;
+	left: 3%;
+	top: 40%;
+}
+
+#contenido{
+	position: absolute;
+	left: 20%;
+	top: 45%;
+	width:60%;
+}
+
+#derecha{
+	position: absolute;
+	width:15%;
+	top:40%;
+	left: 83%;
+}
+
+
+/*
+#izquierda{
+	float:left;
+	width: 17%;
+	margin-left: 3%;
+	margin-top: 2%;
+}
+
+#contenido{
+	float:left;
+	margin-left: 1%;
+	margin-top: 5%;
+	margin-bottom: 2%;
+	width:60%;
+}
+
+#derecha{
+	float:right;
+	width:15%;
+	margin-left: 1%;
+	margin-top: 2%;
+}
+
+*/
+.segunda{
+	margin-top: 100%;
+}
+
+/************* Dentro del contenido *********************/
+
+
+#contenido p{
+	text-align: justify;
+	font-family: 'Rosarivo', serif;
+
+}
+#contenido p img{
+	float:right;
+	margin-left: 1%;
+	margin-bottom: 1%;
+}
+
+#imagenes{
+	clear:both;
+	left:1%;
+	margin-top: 2%;
+	text-align: center;
+	width:150%;
+	margin-left: -25%;
+	margin-bottom: 1%
+}
+
+
