@@ -1,0 +1,236 @@
+﻿//array con partes de la página
+$lista: cabecera, menu, izquierda, contenido, derecha, pie; 
+$lista_cabecera: img, h1;
+$breakpoints: (
+  'tablet'  : ( min-width:  768px ),
+  'laptop' : ( min-width: 992px ),
+  'pc'  : ( min-width: 1200px )
+);
+//variables estilo de la página
+$margen:2%;
+$tam: 2px;
+$color: red;
+$debug: false; 
+$ancho: 95%;
+
+/*****************************************************************/
+
+//funciones
+@mixin border($size, $color){
+  border: $size solid $color;
+}
+@mixin bloque($padding, $color){
+  background-color: $color;
+  padding:$padding;
+}
+%texto{
+  text-align:justify;
+  text-decoration:none;
+  text-transform: capitalize;
+  //text-indent: 40px;
+  font-family: 'Ubuntu', sans-serif;
+  font-size:1em;
+  p::first-letter{font-size:2em};
+}
+.medio
+{
+  text-align:center;
+  text-decoration: underline;
+}
+@mixin breaks($nombre) {
+  @media #{inspect(map-get($breakpoints, $nombre))} {
+      @content;
+  }
+}
+/***************************************************/
+
+//diseño de la página
+#container
+{
+  display: grid;
+  grid-template-rows: 300px 5% 90% 5%;
+  grid-template-areas:
+        "cabecera cabecera cabecera cabecera cabecera cabecera" 
+          "menu menu menu menu menu menu"
+        "contenido contenido contenido contenido contenido contenido"
+        "pie pie pie pie pie pie";
+  grid-gap: $margen/2;
+  
+  #contenido
+  {
+    p
+    {
+      margin:$margen;
+      width: $ancho;
+    }
+    ul li
+    {
+      border-bottom: $tam solid #ccc;
+      margin-bottom: $tam*2;
+      width:$ancho;
+      padding:$tam;
+      //list-style:none;
+    }
+  } 
+  
+  #pie
+  {
+    @extend .medio;
+  }
+  
+  #izquierda, #derecha
+  {
+    .segunda{margin-top:20vh;}//espacio entre imagenes
+    img{width:100%;}//img responsiva
+    display:none;
+  }
+  
+  #cabecera
+  {
+    background-image: url("../img/cabecera.png") ;
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+
+    @include border($tam, $color);
+    display: grid;
+    grid-template-rows: repeat(2, 100px);
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-areas:
+                        ". . img . ."
+                        ". . h1 . .";
+    
+    //añade un grid area con el mismo nombre a todos los elementos de la cabecera
+    //si se quiere añadir uno nuevo añadir al array lista_cabecera al principio
+    @for $i from 1 through length($lista_cabecera)
+    {
+      #{nth($lista_cabecera, $i)}
+      {
+        grid-area:nth($lista_cabecera, $i);
+        position:relative;
+        top: 20%;
+        margin:auto;
+      }
+    }
+  }
+  #menu
+  {
+    text-align:center;
+    
+    a{
+      display:inline-block;
+      width:28%;
+      text-decoration:none;
+      color: lighten(#191970, 15%);
+      @include bloque(10px, #00FF00);
+      margin:1%;
+      position:relative;
+      top:0;
+      &:visited{
+        text-decoration:none;
+      }
+      &:hover, &:active{
+        @include bloque(10px, darken(#00FF00, 25%));
+        text-decoration:underline;
+      }
+    }
+  }
+  
+  
+  //añade un grid area con la misma id a todos los elementos principales de la página
+  //si se quiere añadir uno nuevo añadir al array lista al principio
+  @for $i from 1 through length($lista)//
+  { 
+    ##{nth($lista, $i)}
+    {
+      grid-area:nth($lista, $i);
+      @if ($debug) // para ver el tamaño de los divs
+      {
+        @include border($tam, $color);
+      }
+      @if ($i!=1) //añade propiedados de texto excepto a la cabecera
+      {
+        @extend %texto;
+      }
+    }
+  }
+ 
+}
+
+/*******************************************************************/
+//responsive
+
+@include breaks(tablet)
+{
+  #container
+  {
+    grid-template-areas:
+        "cabecera cabecera cabecera cabecera cabecera cabecera" 
+          "menu menu menu menu menu menu"
+        "izquierda contenido contenido contenido contenido derecha"
+        ". . pie pie . .";
+    
+    #cabecera
+    {
+      grid-template-rows: repeat(1, 200px);
+      grid-template-areas:  ". img h1 . .";
+    }
+    #izquierda, #derecha
+    {
+      display:block;
+      
+    }
+    #menu
+    {
+      a
+      {
+        width:(100%/6);
+        margin-left:0;
+        margin-right:0;
+        top:20%;
+      }
+    }
+
+  }
+}
+  
+@include breaks(laptop)
+{
+  #container
+  {
+    #contenido
+    {
+     #texto img
+      {
+        display:inline;
+        float:right;
+        width: ($ancho/2);
+        margin-left:$margen;
+        margin-right:0;
+        margin-top:0;
+        margin-bottom:$margen;
+
+      }
+      p
+      {
+       // margin:0;
+        width: auto;
+      }
+    }
+  }
+}
+
+@include breaks(pc)
+{
+  #container
+  {
+    grid-template-areas:
+      "cabecera cabecera cabecera cabecera cabecera cabecera" 
+      "... menu menu menu menu ..."
+    "izquierda contenido contenido contenido contenido derecha"
+    ". . pie pie . .";
+  }
+}
+
+    
+    
+  

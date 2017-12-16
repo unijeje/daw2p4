@@ -1,28 +1,26 @@
-#container #menu, #container #izquierda, #container #contenido, #container #derecha {
+/*****************************************************************/
+#container #menu, #container #izquierda, #container #contenido, #container #derecha, #container #pie {
   text-align: justify;
   text-decoration: none;
   text-transform: capitalize;
   font-family: 'Ubuntu', sans-serif;
   font-size: 1em;
 }
-#container #menu p::first-letter, #container #izquierda p::first-letter, #container #contenido p::first-letter, #container #derecha p::first-letter {
+#container #menu p::first-letter, #container #izquierda p::first-letter, #container #contenido p::first-letter, #container #derecha p::first-letter, #container #pie p::first-letter {
   font-size: 2em;
 }
 
-#container {
-  display: grid;
-  grid-template-rows: 4fr 1fr 12fr;
-  grid-template-areas: "cabecera cabecera cabecera cabecera cabecera cabecera"  "... ... menu menu ... ..." "izquierda contenido contenido contenido contenido derecha";
-  grid-gap: 1%;
-}
-#container #contenido {
-  display: grid;
-  grid-gap: 2%;
-  grid-template-columns: 1fr 1fr;
-}
-#container #contenido .medio, #container #contenido #noticia > .informe h4 {
+.medio, #container #contenido #noticia > .informe h4, #container #pie {
   text-align: center;
   text-decoration: underline;
+}
+
+/***************************************************/
+#container {
+  display: grid;
+  grid-template-rows: 300px 5% 90% 5%;
+  grid-template-areas: "cabecera cabecera cabecera cabecera cabecera cabecera"  "menu menu menu menu menu menu" "contenido contenido contenido contenido contenido contenido" "pie pie pie pie pie pie";
+  grid-gap: 1%;
 }
 #container #contenido h2 {
   font-family: 'Fira Sans', sans-serif;
@@ -32,7 +30,7 @@
 }
 #container #contenido #noticia > .informe {
   border: 5px solid #8B84C6;
-  margin-bottom: 5%;
+  margin-bottom: 2%;
 }
 #container #contenido #noticia > .informe p {
   margin: 5%;
@@ -42,6 +40,9 @@
   font-family: 'Fira Sans', sans-serif;
   background-color: #8B84C6;
   padding: 5px;
+}
+#container #izquierda, #container #derecha {
+  display: none;
 }
 #container #izquierda .segunda, #container #derecha .segunda {
   margin-top: 20vh;
@@ -55,29 +56,35 @@
   background-size: 100% 100%;
   border: 2px solid red;
   display: grid;
-  grid-template-areas: "... img ... h1 ... ...";
+  grid-template-rows: repeat(2, 100px);
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-areas: ". . img . ." ". . h1 . .";
 }
 #container #cabecera img {
   grid-area: img;
   position: relative;
   top: 20%;
+  margin: auto;
 }
 #container #cabecera h1 {
   grid-area: h1;
   position: relative;
   top: 20%;
+  margin: auto;
 }
 #container #menu {
   text-align: center;
 }
 #container #menu a {
+  display: inline-block;
+  width: 28%;
   text-decoration: none;
-  position: relative;
-  top: 30%;
   color: #2727af;
   background-color: #00FF00;
   padding: 10px;
-  margin: 1px;
+  margin: 1%;
+  position: relative;
+  top: 20%;
 }
 #container #menu a:visited {
   text-decoration: none;
@@ -102,28 +109,38 @@
 #container #derecha {
   grid-area: derecha;
 }
+#container #pie {
+  grid-area: pie;
+}
 
-@media (max-width: 1359px) {
+/*******************************************************************/
+@media (min-width: 768px) {
   #container {
-    grid-template-areas: "cabecera cabecera cabecera cabecera cabecera cabecera"  "... menu menu menu menu ..." "izquierda contenido contenido contenido contenido derecha";
+    grid-template-rows: 300px 5% 90% 5%;
+    grid-template-areas: "cabecera cabecera cabecera cabecera cabecera cabecera"  "menu menu menu menu menu menu" "izquierda contenido contenido contenido contenido derecha" ". . pie pie . .";
+  }
+  #container #cabecera {
+    grid-template-rows: repeat(1, 200px);
+    grid-template-areas: ". img h1 . .";
+  }
+  #container #izquierda, #container #derecha {
+    display: block;
+  }
+  #container #menu a {
+    width: 16.66666667%;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
-@media (max-width: 1003px) {
-  #container {
-    grid-template-areas: "cabecera cabecera cabecera cabecera cabecera"  "menu menu menu menu menu " "contenido contenido contenido contenido contenido";
-    font-size: 1.2em;
-  }
-
-  #izquierda {
-    display: none;
-  }
-
-  #derecha {
-    display: none;
+@media (min-width: 992px) {
+  #container #contenido {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 4%;
   }
 }
-@media (max-width: 768px) {
-  #contenido {
-    grid-template-columns: 1fr;
+@media (min-width: 1200px) {
+  #container {
+    grid-template-areas: "cabecera cabecera cabecera cabecera cabecera cabecera"  "... menu menu menu menu ..." "izquierda contenido contenido contenido contenido derecha" ". . pie pie . .";
   }
 }
