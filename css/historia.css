@@ -124,7 +124,7 @@
   }
 }
 @media (min-width: 992px) {
-  #container #contenido #texto img {
+  #container #contenido img {
     display: inline;
     float: right;
     width: 47.5%;
