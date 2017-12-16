@@ -18,9 +18,9 @@
 /***************************************************/
 #container {
   display: grid;
-  grid-template-rows: 300px 5% 90% 5%;
+  grid-template-rows: 2fr 1fr 8fr 1fr;
   grid-template-areas: "cabecera cabecera cabecera cabecera cabecera cabecera"  "menu menu menu menu menu menu" "contenido contenido contenido contenido contenido contenido" "pie pie pie pie pie pie";
-  grid-gap: 1%;
+  grid-gap: 2%;
 }
 #container #contenido h2 {
   font-family: 'Fira Sans', sans-serif;
@@ -51,7 +51,7 @@
   width: 100%;
 }
 #container #cabecera {
-  background-image: url("img/cabecera.png");
+  background-image: url("../img/cabecera.png");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   border: 2px solid red;
@@ -74,6 +74,8 @@
 }
 #container #menu {
   text-align: center;
+  position: relative;
+  top: 10%;
 }
 #container #menu a {
   display: inline-block;
@@ -83,8 +85,6 @@
   background-color: #00FF00;
   padding: 10px;
   margin: 1%;
-  position: relative;
-  top: 20%;
 }
 #container #menu a:visited {
   text-decoration: none;
@@ -116,7 +116,7 @@
 /*******************************************************************/
 @media (min-width: 768px) {
   #container {
-    grid-template-rows: 300px 5% 90% 5%;
+    grid-template-rows: 3fr 1fr 8fr 1fr;
     grid-template-areas: "cabecera cabecera cabecera cabecera cabecera cabecera"  "menu menu menu menu menu menu" "izquierda contenido contenido contenido contenido derecha" ". . pie pie . .";
   }
   #container #cabecera {
@@ -127,7 +127,7 @@
     display: block;
   }
   #container #menu a {
-    width: 16.66666667%;
+    width: 16.66667%;
     margin-left: 0;
     margin-right: 0;
   }
