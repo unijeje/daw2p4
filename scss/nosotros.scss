@@ -66,14 +66,14 @@ $ancho: 95%;
       @include border($tam, blue);
       width: $ancho;
     }
-    p 
+    p
     {
       margin:$margen*2;
       width: $ancho;
     }
     #imagenes img
     {
-      @extend p;
+      margin-top:$margen;
     }
   } 
   
@@ -232,7 +232,15 @@ $ancho: 95%;
       "... menu menu menu menu ..."
     "izquierda contenido contenido contenido contenido derecha"
     ". . pie pie . .";
+    #contenido
+    {
+      #imagenes img
+      {
+        width:100%;
+      }
+    }
   }
+   
 }
 
     

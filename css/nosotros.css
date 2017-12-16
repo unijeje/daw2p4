@@ -5,7 +5,7 @@
   font-family: 'Ubuntu', sans-serif;
   font-size: 1em;
 }
-#container #menu p::first-letter, #container #izquierda p::first-letter, #container #contenido p::first-letter, #container #derecha p::first-letter, #container #pie p::first-letter, #container #contenido #imagenes img::first-letter {
+#container #menu p::first-letter, #container #izquierda p::first-letter, #container #contenido p::first-letter, #container #derecha p::first-letter, #container #pie p::first-letter {
   font-size: 2em;
 }
 
@@ -28,9 +28,12 @@
   border: 2px solid blue;
   width: 95%;
 }
-#container #contenido p, #container #contenido #imagenes img {
+#container #contenido p {
   margin: 2%;
   width: 95%;
+}
+#container #contenido #imagenes img {
+  margin-top: 1%;
 }
 #container #izquierda, #container #derecha {
   display: none;
@@ -117,7 +120,7 @@
     display: block;
   }
   #container #menu a {
-    width: 16.66666667%;
+    width: 16.66667%;
     margin-left: 0;
     margin-right: 0;
     top: 20%;
@@ -133,12 +136,15 @@
     margin-top: 0;
     margin-bottom: 1%;
   }
-  #container #contenido p, #container #contenido #imagenes img {
+  #container #contenido p {
     width: auto;
   }
 }
 @media (min-width: 1200px) {
   #container {
     grid-template-areas: "cabecera cabecera cabecera cabecera cabecera cabecera"  "... menu menu menu menu ..." "izquierda contenido contenido contenido contenido derecha" ". . pie pie . .";
+  }
+  #container #contenido #imagenes img {
+    width: 100%;
   }
 }
