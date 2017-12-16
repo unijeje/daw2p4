@@ -2,7 +2,6 @@
 #container #menu, #container #izquierda, #container #contenido, #container #derecha, #container #pie {
   text-align: justify;
   text-decoration: none;
-  text-transform: capitalize;
   font-family: 'Ubuntu', sans-serif;
   font-size: 1em;
 }
@@ -23,7 +22,7 @@
   grid-gap: 1%;
 }
 #container #contenido p {
-  margin: 2%;
+  margin: 1%;
   width: 95%;
 }
 #container #contenido ul li {
@@ -117,7 +116,7 @@
     display: block;
   }
   #container #menu a {
-    width: 16.66666667%;
+    width: 16.66667%;
     margin-left: 0;
     margin-right: 0;
     top: 20%;
@@ -128,10 +127,10 @@
     display: inline;
     float: right;
     width: 47.5%;
-    margin-left: 2%;
+    margin-left: 1%;
     margin-right: 0;
     margin-top: 0;
-    margin-bottom: 2%;
+    margin-bottom: 1%;
   }
   #container #contenido p {
     width: auto;

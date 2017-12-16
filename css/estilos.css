@@ -2,7 +2,6 @@
 #container #menu, #container #izquierda, #container #contenido, #container #derecha, #container #pie {
   text-align: justify;
   text-decoration: none;
-  text-transform: capitalize;
   font-family: 'Ubuntu', sans-serif;
   font-size: 1em;
 }
@@ -18,9 +17,9 @@
 /***************************************************/
 #container {
   display: grid;
-  grid-template-rows: 2fr 1fr 8fr 1fr;
+  grid-template-rows: 300px 5% 90% 5%;
   grid-template-areas: "cabecera cabecera cabecera cabecera cabecera cabecera"  "menu menu menu menu menu menu" "contenido contenido contenido contenido contenido contenido" "pie pie pie pie pie pie";
-  grid-gap: 2%;
+  grid-gap: 1%;
 }
 #container #contenido h2 {
   font-family: 'Fira Sans', sans-serif;
@@ -30,7 +29,7 @@
 }
 #container #contenido #noticia > .informe {
   border: 5px solid #8B84C6;
-  margin-bottom: 2%;
+  margin-bottom: 1%;
 }
 #container #contenido #noticia > .informe p {
   margin: 5%;
@@ -116,7 +115,6 @@
 /*******************************************************************/
 @media (min-width: 768px) {
   #container {
-    grid-template-rows: 3fr 1fr 8fr 1fr;
     grid-template-areas: "cabecera cabecera cabecera cabecera cabecera cabecera"  "menu menu menu menu menu menu" "izquierda contenido contenido contenido contenido derecha" ". . pie pie . .";
   }
   #container #cabecera {
@@ -127,7 +125,7 @@
     display: block;
   }
   #container #menu a {
-    width: 16.66667%;
+    width: 16.66666667%;
     margin-left: 0;
     margin-right: 0;
   }
@@ -136,7 +134,7 @@
   #container #contenido {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 4%;
+    grid-gap: 2%;
   }
 }
 @media (min-width: 1200px) {

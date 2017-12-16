@@ -7,7 +7,7 @@ $breakpoints: (
   'pc'  : ( min-width: 1200px )
 );
 //variables estilo de la página
-$margen:2%;
+$margen:1%;
 $tam: 2px;
 $color: red;
 $debug: false; 
@@ -26,7 +26,7 @@ $ancho: 95%;
 %texto{
   text-align:justify;
   text-decoration:none;
-  text-transform: capitalize;
+  //text-transform: capitalize;
   //text-indent: 40px;
   font-family: 'Ubuntu', sans-serif;
   font-size:1em;
@@ -54,7 +54,7 @@ $ancho: 95%;
           "menu menu menu menu menu menu"
         "contenido contenido contenido contenido contenido contenido"
         "pie pie pie pie pie pie";
-  grid-gap: $margen/2;
+  grid-gap: $margen;
   
   #contenido
   {
@@ -63,14 +63,12 @@ $ancho: 95%;
       display:block;
       margin-left:auto;
       margin-right:auto;
-     
       @include border($tam, blue);
       width: $ancho;
     }
-    p
+    p 
     {
-      margin-top:$margen;
-      margin-bottom:$margen;
+      margin:$margen*2;
       width: $ancho;
     }
     #imagenes img
@@ -128,7 +126,7 @@ $ancho: 95%;
       text-decoration:none;
       color: lighten(#191970, 15%);
       @include bloque(10px, #00FF00);
-      margin:1%;
+      margin:$margen;
       position:relative;
       top:0;
       &:visited{

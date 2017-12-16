@@ -2,7 +2,6 @@
 #container #menu, #container #izquierda, #container #contenido, #container #derecha, #container #pie {
   text-align: justify;
   text-decoration: none;
-  text-transform: capitalize;
   font-family: 'Ubuntu', sans-serif;
   font-size: 1em;
 }
@@ -30,7 +29,7 @@
   width: 95%;
 }
 #container #contenido p {
-  margin: 2%;
+  margin: 1%;
   width: 95%;
 }
 #container #izquierda, #container #derecha {
@@ -123,16 +122,19 @@
     margin-right: 0;
     top: 20%;
   }
+  #container #contenido img {
+    margin-top: 1%;
+  }
 }
 @media (min-width: 992px) {
   #container #contenido #texto img {
     display: inline;
     float: right;
     width: 47.5%;
-    margin-left: 2%;
+    margin-left: 1%;
     margin-right: 0;
     margin-top: 0;
-    margin-bottom: 2%;
+    margin-bottom: 1%;
   }
   #container #contenido p {
     width: auto;
